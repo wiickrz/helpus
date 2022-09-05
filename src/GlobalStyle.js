@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
         list-style: none;
+        border-radius: 4px;
     }
 
     input:-webkit-autofill,
@@ -24,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     }
         
     body{
-        background-color: var(--MainDark);
+        background-color: var(--preto-1);
 
         &::-webkit-scrollbar {
             background-color: transparent;
