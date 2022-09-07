@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+ 
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
@@ -23,9 +23,9 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     }
-        
+    
     body{
-        background-color: var(--preto-1);
+       background-color: var(--preto-1);
 
         &::-webkit-scrollbar {
             background-color: transparent;
@@ -53,7 +53,8 @@ export const GlobalStyle = createGlobalStyle`
         --vermelho-1: #F01515;
         --branco-1: #FFFFFF;
         --preto-1: #202020;
+        --preto-2: #000000;  
         --cinza-1: #404040;
-        --cinza-2: #D9D9D9;
+        --cinza-2: #D9D9D9; 
     }
 `;
