@@ -24,10 +24,9 @@ export const StyledComponents = styled.button`
 
     :hover {
         transform: scale(1.1);
-        transition: all 0.5s;
-        color: var(--preto-2);
+        transition: all 0.3s;
         opacity: 0.7;
-        font-weight: 700;
+        cursor: pointer;
       }
     }
 `
