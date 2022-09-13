@@ -56,7 +56,7 @@ export const Register = () => {
   const handleRegister = (data, e) => {
     e.preventDefault();
     const newData = {
-      name: data.name,
+      username: data.username,
       email: data.email,
       password: data.password,
     };
@@ -81,9 +81,9 @@ export const Register = () => {
               label="Nome"
               type="name"
               register={register}
-              name="name"
+              name="username"
               placeholder="Insira seu nome completo"
-              error={errors.name?.message}
+              error={errors.username?.message}
             />
             <TextField
               label="Email"
