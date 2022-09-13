@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
- 
+
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
@@ -25,15 +25,11 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     }
-<<<<<<< HEAD
-    
-=======
 
     html {
         height: 100vh;
     }
         
->>>>>>> register
     body{
        background-color: var(--preto-1);
 

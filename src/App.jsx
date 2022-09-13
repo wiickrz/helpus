@@ -1,18 +1,13 @@
 import { GlobalStyle } from "./Styles/GlobalStyle";
-<<<<<<< HEAD
-import { AppRoutes } from "./Routes/index";
-=======
 import { ToastContainer } from "react-toastify";
+import { AppRoutes } from "./Routes/index";
 import "react-toastify/dist/ReactToastify.css";
->>>>>>> register
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-<<<<<<< HEAD
       <AppRoutes />
-=======
       <ToastContainer
         position="top-right"
         theme="dark"
@@ -25,7 +20,6 @@ export const App = () => {
         draggable
         pauseOnHover
       />
->>>>>>> register
     </>
   );
 };
