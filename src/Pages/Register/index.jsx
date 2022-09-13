@@ -17,7 +17,7 @@ export const Register = () => {
     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#?/+-])[0-9a-zA-Z$*&@#?/+-]{6,}$/;
 
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
+    username: yup.string().required("Campo obrigatório!"),
     email: yup.string().email("Email inválido!").required("Campo obrigatorio!"),
     password: yup
       .string()
