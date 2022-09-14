@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { RegisterContext } from "../../Providers/register";
+import { RegisterContext } from "../../Providers/Register";
 
 export const Register = () => {
   const [showPassword, setShowPassword] = useState(false);

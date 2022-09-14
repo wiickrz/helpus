@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Api from "../../Services/api";
+import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 

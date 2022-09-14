@@ -8,7 +8,7 @@ import { TextField } from "../../Components/Input";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import formSchema from "./formSchema";
-import Api from "../../Services/api";
+import { Api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 

@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Api } from "../../Services/index";
-import { useHistory } from "react-router-dom";
+import { Api } from "../../Services/api.jsx";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
 
 export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  const history = useHistory();
+  const nav = useNavigate();
 
   const [userId, setUserId] = useState(
     JSON.parse(localStorage.getItem("@HelpUs:userId")) || ""
@@ -30,7 +30,7 @@ export const LoginProvider = ({ children }) => {
 
         localStorage.setItem("@HelpUs:token", access);
 
-        return history.push("/dashboard");
+        return nav("/dashboard");
       })
       .catch((_) => toast.error("Email ou senha Inválidos"));
   };
@@ -39,7 +39,7 @@ export const LoginProvider = ({ children }) => {
     setToken("");
     localStorage.clear();
 
-    history.push("/login");
+    nav("/login");
   };
 
   useEffect(() => {
