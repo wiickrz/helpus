@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         list-style: none;
         border-radius: 4px;
+        border: none;
+        outline: none;
     }
 
     input:-webkit-autofill,
@@ -23,26 +25,23 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     box-shadow: 0 0 0px 1000px var(--cinza-2) inset;
     }
+
+    html {
+        height: 100vh;
+    }
         
     body{
-        background-color: var(--preto-1);
+       background-color: var(--preto-1);
 
         &::-webkit-scrollbar {
             background-color: transparent;
-            border-radius: 7px;
             width: 5px;
             background-color: var(--branco-1);
         }
         
         &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background: linear-gradient(
-                to top,
-                transparent,
-                var(--preto-1),
-                transparent
-            );
-            
+            background: var(--cinza-1);
+         
         }
     }
 
@@ -53,7 +52,8 @@ export const GlobalStyle = createGlobalStyle`
         --vermelho-1: #F01515;
         --branco-1: #FFFFFF;
         --preto-1: #202020;
+        --preto-2: #000000;  
         --cinza-1: #404040;
-        --cinza-2: #D9D9D9;
+        --cinza-2: #D9D9D9; 
     }
 `;

@@ -1,5 +1,4 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { api } from "../../Services/api";
 
 export const DashboardContext = createContext();
 

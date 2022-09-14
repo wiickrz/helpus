@@ -1,14 +1,16 @@
 import { GlobalStyle } from "./Styles/GlobalStyle";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { AppRoutes } from "./Routes/index";
 import "react-toastify/dist/ReactToastify.css";
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
+      <AppRoutes />
       <ToastContainer
         position="top-right"
+        theme="dark"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -18,7 +20,6 @@ export const App = () => {
         draggable
         pauseOnHover
       />
-      <ToastContainer />
     </>
   );
 };

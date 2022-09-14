@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { api } from "../../Services/api";
+import { Api } from "../../Services/api";
 import { useLogin } from "../Login";
 import { useCart } from "../Cart";
 
@@ -10,19 +10,18 @@ export const CoursesProvider = ({ children }) => {
   const { token } = useLogin();
   const { setCart } = useCart();
   useEffect(() => {
-    api.get("/courses").then((response) => {
+    Api.get("/courses").then((response) => {
       setCourses(response.data);
     });
   }, []);
 
   const handleAddCart = (id) => {
     if (!!token) {
-      api
-        .get(`/courses/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
+      Api.get(`/courses/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((response) => setCart(response.data))
         .catch((err) => console.log(err));
     }

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import api from "../../Services/index";
+import { Api } from "../../Services/index";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
@@ -19,8 +19,7 @@ export const LoginProvider = ({ children }) => {
   );
 
   const onSubmitFunction = (data) => {
-    api
-      .post("/register/", data)
+    Api.post("/register/", data)
       .then((response) => {
         const { access } = response.data;
         let decode = jwt_decode(access);
