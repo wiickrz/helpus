@@ -4,6 +4,7 @@ import { Dashboard } from "../Pages/Dashboard/index";
 import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login/index";
 import { Register } from "../Pages/Register/index";
+import { PageContact } from "../Pages/PageContact";
 
 export const AppRoutes = () => {
     return (
@@ -13,6 +14,7 @@ export const AppRoutes = () => {
             <Route path="/dashaboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/pagecontact" element={<PageContact />} />
         </Routes>
     )
 }
