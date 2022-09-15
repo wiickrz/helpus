@@ -2,6 +2,7 @@ import { GlobalStyle } from "./Styles/GlobalStyle";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "./Routes/index";
 import "react-toastify/dist/ReactToastify.css";
+import { Header } from "./Components/Header";
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
         draggable
         pauseOnHover
       />
+      <Header/>
     </>
   );
 };
