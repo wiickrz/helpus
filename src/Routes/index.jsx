@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { Cart } from "../Pages/Cart/index";
-import { Dashboard } from "../Pages/Dashboard/index";
-import { Home } from "../Pages/Home";
+// import { Cart } from "../Pages/Cart/index";
+// import { Dashboard } from "../Pages/Dashboard/index";
+// import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";
 import { Register } from "../Pages/Register";
 

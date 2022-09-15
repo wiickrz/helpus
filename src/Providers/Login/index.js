@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Api } from "../../Services/api.jsx";
+import { api } from "../../Services/api.jsx";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
@@ -19,16 +19,17 @@ export const LoginProvider = ({ children }) => {
   );
 
   const onSubmitFunction = (data) => {
-    Api.post("/register/", data)
+    api
+      .post("/login/", data)
       .then((response) => {
-        const { access } = response.data;
+        const access = response.data;
         let decode = jwt_decode(access);
-        setUserId(decode.id);
-        localStorage.setItem("@HelpUs:userId", decode.id);
+        setUserId(decode.user_id);
+        localStorage.setItem("@HelpUs:userId", decode.user_id);
         setToken(access);
         setAuthenticated(true);
 
-        localStorage.setItem("@HelpUs:token", access);
+        localStorage.setItem("@HelpUs:token", decode.user_id);
 
         return nav("/dashboard");
       })
@@ -41,14 +42,6 @@ export const LoginProvider = ({ children }) => {
 
     nav("/login");
   };
-
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@HelpUs:token"));
-
-    if (token) {
-      return setAuthenticated(true);
-    }
-  }, [authenticated]);
 
   return (
     <LoginContext.Provider
