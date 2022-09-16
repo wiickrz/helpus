@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const StyledComponents = styled.button`
     background-color: ${(props) =>
-      props.red ? "var(--vermelho-1)"  
-      : props.verde ? "var(--verde-1)" : "var(--azul-1)"
+      props.red ? "var(--vermelho-1)"
+      : props.verde ? "var(--verde-1)"
+      : props.preto ? "var(--preto-1)" : "var(--azul-1)"
     };
     
     width: ${(props) =>
@@ -28,5 +29,4 @@ export const StyledComponents = styled.button`
         opacity: 0.7;
         cursor: pointer;
       }
-    }
 `
