@@ -12,10 +12,10 @@ export const Box = styled.div`
 
 export const BoxButton = styled.div`
   margin-right: 25px;
-`
+`;
 
 export const LogoImg = styled.img`
-  width: 55px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   margin-left: 25px;
 `;
