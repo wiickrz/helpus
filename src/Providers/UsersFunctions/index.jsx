@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
-import { Api } from "../../Services/api";
+import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 
 export const UserContext = createContext();
@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
 
   const UserInfos = () => {
     let { user_id } = jwt_decode(token);
-    Api.get(`/users/${user_id}/`).then((response) => setUser(response.data));
+    api.get(`/users/${user_id}/`).then((response) => setUser(response.data));
   };
   console.log(token);
   useEffect(() => {
@@ -26,12 +26,14 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   const UpdateUser = (data) => {
-    Api.patch(`/users/${user_id}/`, data, {
-      headers: { authorization: `Bearer ${token}` },
-    }).then(() => {
-      UserInfos();
-      toast.success("Usuário atualizado");
-    });
+    api
+      .patch(`/users/${user_id}/`, data, {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        UserInfos();
+        toast.success("Usuário atualizado");
+      });
   };
 
   return (
