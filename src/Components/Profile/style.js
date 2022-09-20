@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* background: red; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -10,7 +9,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  /* background: blue; */
   display: flex;
   flex-direction: column;
   font-size: 16px;
