@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
+    <>
     <S.Box>
       <Link to="/">
         <S.LogoImg src={logo} alt="logo" />
@@ -20,5 +21,7 @@ export const Header = () => {
         </Link>
       </S.BoxButton>
     </S.Box>
+    <S.Line/>
+    </>
   );
 };
