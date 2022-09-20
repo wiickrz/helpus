@@ -10,6 +10,11 @@ export const Profile = () => {
   const [openModal, setOpenModal] = useState(false);
   const { user } = useContext(UserContext);
 
+  const getUserLetters = () => {
+    const fullName = user.username ? user.username.charAt(0) : "";
+    return fullName.toUpperCase();
+  };
+
   return (
     <S.Container>
       <Avatar
@@ -18,7 +23,7 @@ export const Profile = () => {
         onClick={() => setOpenModal(true)}
         sx={{ width: 70, height: 70 }}
       >
-        {updateUser ? <FaUserEdit /> : "W"}
+        {updateUser ? <FaUserEdit /> : <>{user && getUserLetters()}</>}
       </Avatar>
       <S.Title>
         Olá,

@@ -3,6 +3,7 @@ import { DashboardProvider } from "./Dashboard";
 import { MentorsProvider } from "./Mentors";
 import { RegisterProvider } from "./Register";
 import { UserProvider } from "./UsersFunctions";
+import { LoginProvider } from "./Login";
 
 export const Providers = ({ children }) => {
   return (
@@ -11,7 +12,9 @@ export const Providers = ({ children }) => {
         <CoursesProvider>
           <DashboardProvider>
             <UserProvider>
-              <RegisterProvider>{children}</RegisterProvider>
+              <LoginProvider>
+                <RegisterProvider>{children}</RegisterProvider>
+              </LoginProvider>
             </UserProvider>
           </DashboardProvider>
         </CoursesProvider>
