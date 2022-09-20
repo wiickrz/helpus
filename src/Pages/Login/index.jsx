@@ -11,6 +11,7 @@ import formSchema from "./formSchema";
 import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { FiEyeOff, FiEye } from "react-icons/fi";
+import jwtDecode from "jwt-decode";
 
 export const Login = () => {
   const nav = useNavigate();
@@ -32,14 +33,16 @@ export const Login = () => {
     api
       .post("login/", data)
       .then((response) => {
+        localStorage.clear();
         const token = response.data.accessToken;
+        const { sub } = jwtDecode(token);
         console.log("Data", data);
         console.log("Token", token);
 
-        localStorage.clear();
         localStorage.setItem("@HelpUs:token", JSON.stringify(token));
+        localStorage.setItem("@HelpUs:user", JSON.stringify(sub));
         toast.success("Usuário logado com sucesso!");
-        return nav("/register");
+        return nav("/");
       })
       .catch((error) => {
         toast.error("Usuário ou senha incorretos!");

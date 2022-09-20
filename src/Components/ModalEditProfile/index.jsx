@@ -5,7 +5,7 @@ import { UserContext } from "../../Providers/UsersFunctions";
 import { useForm } from "react-hook-form";
 import { Avatar } from "@mui/material";
 
-export const ModalEditProfile = ({ onClose, onSubmit, id }) => {
+export const ModalEditProfile = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const { UpdateUser, UserInfos, user } = useContext(UserContext);
   const [username, setUser] = useState(user.username);
@@ -47,15 +47,13 @@ export const ModalEditProfile = ({ onClose, onSubmit, id }) => {
                 <label>Nome de usuário</label>
                 <input
                   type="name"
-                  // placeholder={user.username}
-                  placeholder="Willian"
+                  placeholder={user.username}
                   onChange={(e) => setUser(e.target.value)}
                 />
                 <label>E-mail</label>
                 <input
                   type="email"
-                  // placeholder={user.email}
-                  placeholder="teste@gmail.com"
+                  placeholder={user.email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </S.Input>
@@ -65,8 +63,7 @@ export const ModalEditProfile = ({ onClose, onSubmit, id }) => {
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
-                    // placeholder={user.password}
-                    placeholder="Abc@123"
+                    placeholder="Altere sua senha"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <S.Yey onClick={changePassword}>
@@ -76,7 +73,7 @@ export const ModalEditProfile = ({ onClose, onSubmit, id }) => {
                 </div>
               </S.Password>
               <S.BoxButton>
-                <S.Button onClick={onSubmit}>Salvar</S.Button>
+                <S.Button type="submit">Salvar</S.Button>
               </S.BoxButton>
             </S.Form>
           </S.User>
