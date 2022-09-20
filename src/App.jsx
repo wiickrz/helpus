@@ -23,7 +23,7 @@ export const App = () => {
         pauseOnHover
       />
       <Header />
-      <Profile />
+      {/* <Profile /> */}
     </>
   );
 };

@@ -33,12 +33,12 @@ export const Login = () => {
     api
       .post("login/", data)
       .then((response) => {
+        localStorage.clear();
         const token = response.data.accessToken;
         const { sub } = jwtDecode(token);
         console.log("Data", data);
         console.log("Token", token);
 
-        localStorage.clear();
         localStorage.setItem("@HelpUs:token", JSON.stringify(token));
         localStorage.setItem("@HelpUs:user", JSON.stringify(sub));
         toast.success("Usuário logado com sucesso!");

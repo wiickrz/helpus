@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { api } from "../../Services/api";
 import { toast } from "react-toastify";
-
+import { useNavigate, useLocation } from "react-router-dom";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -11,8 +11,14 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("@HelpUs:token")) || ""
   );
-
-  const { sub } = jwt_decode(token);
+  const nav = useNavigate();
+  const loc = useLocation();
+  console.log(loc.pathname, "loc");
+  useEffect(() => {
+    if (!token && loc.pathname == "/dashboard") {
+      nav("/login");
+    }
+  }, [token]);
 
   const UserInfos = () => {
     let { sub } = jwt_decode(token);
@@ -28,6 +34,8 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   const UpdateUser = (data) => {
+    let { sub } = jwt_decode(token);
+
     api
       .patch(`/users/${sub}/`, data, {
         headers: { authorization: `Bearer ${token}` },
