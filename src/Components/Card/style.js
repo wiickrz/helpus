@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  width: 230px;
-  height: 280px;
+  width: 210px;
+  height: 260px;
   padding: 20px 10px 10px;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,14 +15,20 @@ export const Container = styled.section`
 `;
 
 export const Imagem = styled.img`
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 5px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
 `;
 
 export const Name = styled.h3`
-  font-size: 1.2rem;
+  max-width: 18ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0.9rem;
   color: var(--branco-1);
+  margin-bottom: 8px;
 `;
 export const Description = styled.h5`
   font-size: 0.8rem;

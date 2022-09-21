@@ -1,11 +1,11 @@
-import { StyledComponents } from './style';
+import { StyledComponents } from "./style";
 
 export const Button = ({
   children,
-  cadastroDesk=false,
-  cadastroMobi=false,
-  proDesk=false,
-  proMobi=false,
+  cadastroDesk = false,
+  cadastroMobi = false,
+  proDesk = false,
+  proMobi = false,
   ...rest
 }) => {
   return (
@@ -18,7 +18,5 @@ export const Button = ({
     >
       {children}
     </StyledComponents>
-  )
-}
-
-
+  );
+};

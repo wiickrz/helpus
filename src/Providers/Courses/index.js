@@ -7,6 +7,7 @@ export const CoursesContext = createContext();
 
 export const CoursesProvider = ({ children }) => {
   const [courses, setCourses] = useState([]);
+
   const token = useLogin();
   const setCart = useCart();
   useEffect(() => {
@@ -20,7 +21,7 @@ export const CoursesProvider = ({ children }) => {
       api
         .get(`/courses/${id}`, {
           headers: {
-            Authorization: `Bearer ${id}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => setCart(response.data))
@@ -29,7 +30,7 @@ export const CoursesProvider = ({ children }) => {
   };
 
   return (
-    <CoursesContext.Provider value={(courses, handleAddCart)}>
+    <CoursesContext.Provider value={{ courses,setCourses ,handleAddCart }}>
       {children}
     </CoursesContext.Provider>
   );

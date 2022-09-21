@@ -8,6 +8,7 @@ export const App = () => {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <AppRoutes />
       <ToastContainer
         position="top-right"
@@ -21,7 +22,6 @@ export const App = () => {
         draggable
         pauseOnHover
       />
-      <Header/>
     </>
   );
 };
