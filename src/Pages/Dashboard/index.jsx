@@ -2,6 +2,7 @@ import loginho from "../../assets/loginho.svg";
 import { Button } from "../../Components/Button";
 import { TextField } from "../../Components/Input";
 import { Card } from "../../Components/Card";
+import { HeaderCart } from "../../Components/HeaderCart";
 import { CgSearch } from "react-icons/cg";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import {
@@ -42,78 +43,81 @@ export const Dashboard = () => {
   };
 
   return (
-    <Container>
-      <ContentUserInfo>
-        <UserLogo>
-          <figure>
-            <img src={loginho} alt="logo" />
-          </figure>
-          <div>
-            <span>Olá,</span>
-            <h2>User!</h2>
-          </div>
-        </UserLogo>
-        <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
-          {selectedCourse ? "Cursos" : "Meus cursos"}
-        </Button>
-        <ContentInput>
-          <div>
-            <TextField
-              type="text"
-              placeholder="Buscar cursos"
-              name={"buscar cursos"}
-              register={register}
-              onChange={(event) => setInputValue(event.target.value)}
-              value={inputValue}
-            />
-          </div>
-          <Button verde onClick={() => handleSubmit(handleInput(inputValue))}>
-            <CgSearch size={"25px"} />
+    <>
+      <HeaderCart />
+      <Container>
+        <ContentUserInfo>
+          <UserLogo>
+            <figure>
+              <img src={loginho} alt="logo" />
+            </figure>
+            <div>
+              <span>Olá,</span>
+              <h2>User!</h2>
+            </div>
+          </UserLogo>
+          <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
+            {selectedCourse ? "Cursos" : "Meus cursos"}
           </Button>
-        </ContentInput>
-        {back && (
-          <p onClick={() => functionBack()}>
-            <IoIosArrowRoundBack size={"20px"} />
-            Voltar
-          </p>
-        )}
-      </ContentUserInfo>
-      <ContentProducts>
-        {selectedCourse
-          ? courseDashboard?.map((course) => {
-              return (
-                <Card
-                  key={course.id}
-                  name={course.name}
-                  category={course.category}
-                  img={loginho}
-                />
-              );
-            })
-          : filteredCourses.length > 0
-          ? filteredCourses?.map((course) => {
-              return (
-                <Card
-                  key={course.id}
-                  name={course.name}
-                  category={course.category}
-                  img={loginho}
-                  onClick={() => handleClick(course.id)}
-                />
-              );
-            })
-          : courses?.map((course) => {
-              return (
-                <Card
-                  key={course.id}
-                  name={course.name}
-                  category={course.category}
-                  img={loginho}
-                  onClick={() => handleClick(course.id)}
-                />
-              );
-            })}
-      </ContentProducts>
-    </Container>
+          <ContentInput>
+            <div>
+              <TextField
+                type="text"
+                placeholder="Buscar cursos"
+                name={"buscar cursos"}
+                register={register}
+                onChange={(event) => setInputValue(event.target.value)}
+                value={inputValue}
+              />
+            </div>
+            <Button verde onClick={() => handleSubmit(handleInput(inputValue))}>
+              <CgSearch size={"25px"} />
+            </Button>
+          </ContentInput>
+          {back && (
+            <p onClick={() => functionBack()}>
+              <IoIosArrowRoundBack size={"20px"} />
+              Voltar
+            </p>
+          )}
+        </ContentUserInfo>
+        <ContentProducts>
+          {selectedCourse
+            ? courseDashboard?.map((course) => {
+                return (
+                  <Card
+                    key={course.id}
+                    name={course.name}
+                    category={course.category}
+                    img={loginho}
+                  />
+                );
+              })
+            : filteredCourses.length > 0
+            ? filteredCourses?.map((course) => {
+                return (
+                  <Card
+                    key={course.id}
+                    name={course.name}
+                    category={course.category}
+                    img={loginho}
+                    onClick={() => handleClick(course.id)}
+                  />
+                );
+              })
+            : courses?.map((course) => {
+                return (
+                  <Card
+                    key={course.id}
+                    name={course.name}
+                    category={course.category}
+                    img={loginho}
+                    onClick={() => handleClick(course.id)}
+                  />
+                );
+              })}
+        </ContentProducts>
+      </Container>
+    </>
   );
 };
