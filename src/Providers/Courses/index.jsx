@@ -30,7 +30,7 @@ export const CoursesProvider = ({ children }) => {
   };
 
   return (
-    <CoursesContext.Provider value={{ courses,setCourses ,handleAddCart }}>
+    <CoursesContext.Provider value={{ courses, setCourses, handleAddCart }}>
       {children}
     </CoursesContext.Provider>
   );
