@@ -1,6 +1,14 @@
 //{}
 import styled from "styled-components";
 
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  max-height: 100vh;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
