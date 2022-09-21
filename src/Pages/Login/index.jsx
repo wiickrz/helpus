@@ -12,9 +12,12 @@ import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import jwtDecode from "jwt-decode";
+import { useAuth } from "../../Providers/Auth";
 
 export const Login = () => {
   const nav = useNavigate();
+  const auth = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -27,26 +30,6 @@ export const Login = () => {
 
   const changePassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  const submitCallback = (data) => {
-    api
-      .post("login/", data)
-      .then((response) => {
-        localStorage.clear();
-        const token = response.data.accessToken;
-        const { sub } = jwtDecode(token);
-        console.log("Data", data);
-        console.log("Token", token);
-
-        localStorage.setItem("@HelpUs:token", JSON.stringify(token));
-        localStorage.setItem("@HelpUs:user", JSON.stringify(sub));
-        toast.success("Usuário logado com sucesso!");
-        return nav("/");
-      })
-      .catch((error) => {
-        toast.error("Usuário ou senha incorretos!");
-      });
   };
 
   return (
@@ -62,7 +45,7 @@ export const Login = () => {
           </div>
         </S.Background>
         <S.Box>
-          <form onSubmit={handleSubmit(submitCallback)}>
+          <form onSubmit={handleSubmit(auth.login)}>
             <TextField
               label="Usuário"
               type="text"
@@ -95,7 +78,7 @@ export const Login = () => {
               <p>ou</p>
               <div />
               <span>
-                <Link to="/login">
+                <Link to="/register">
                   <i>cadastre-se</i>
                 </Link>
               </span>

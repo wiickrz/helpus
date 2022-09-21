@@ -1,13 +1,13 @@
 import * as S from "./style";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { FiEyeOff, FiEye, FiX } from "react-icons/fi";
-import { UserContext } from "../../Providers/UsersFunctions";
 import { useForm } from "react-hook-form";
 import { Avatar } from "@mui/material";
+import { useAuth } from "../../Providers/Auth";
 
 export const ModalEditProfile = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { UpdateUser, UserInfos, user } = useContext(UserContext);
+  const { updateUser, user } = useAuth();
   const [username, setUser] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
@@ -19,13 +19,17 @@ export const ModalEditProfile = ({ onClose }) => {
 
   const onSubmitFunction = (data) => {
     console.log(data);
-    UserInfos();
-    UpdateUser({ username, email, password });
+    updateUser({ username, email, password });
     onClose();
   };
 
-  const changePassword = () => {
-    setShowPassword(!showPassword);
+  // const changePassword = () => {
+  //   setShowPassword(!showPassword);
+  // };
+
+  const getUserLetters = () => {
+    const fullName = user.username ? user.username.charAt(0) : "";
+    return fullName.toUpperCase();
   };
 
   return (
@@ -39,8 +43,10 @@ export const ModalEditProfile = ({ onClose }) => {
           </S.Header>
           <S.User>
             <S.ImageUser>
-              <Avatar sx={{ width: 200, height: 200 }} />
-              <p>Willian</p>
+              <Avatar sx={{ width: 180, height: 180, fontSize: 100 }}>
+                {getUserLetters()}
+              </Avatar>
+              <p>{user && user.username.toUpperCase()}</p>
             </S.ImageUser>
             <S.Form onSubmit={handleSubmit(onSubmitFunction)}>
               <S.Input>
@@ -57,21 +63,23 @@ export const ModalEditProfile = ({ onClose }) => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </S.Input>
-              <S.Password>
+              {/* <S.Password>
                 <div className="innerContainer">
                   <label>Senha</label>
                   <input
                     name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Altere sua senha"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      user.password && setPassword(e.target.value);
+                    }}
                   />
                   <S.Yey onClick={changePassword}>
                     {" "}
                     {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
                   </S.Yey>
                 </div>
-              </S.Password>
+              </S.Password> */}
               <S.BoxButton>
                 <S.Button type="submit">Salvar</S.Button>
               </S.BoxButton>

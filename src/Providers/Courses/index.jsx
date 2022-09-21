@@ -1,13 +1,13 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { api } from "../../Services/api";
-import { useLogin } from "../Login";
+import { useAuth } from "../Auth";
 import { useCart } from "../Cart";
 
 export const CoursesContext = createContext();
 
 export const CoursesProvider = ({ children }) => {
   const [courses, setCourses] = useState([]);
-  const token = useLogin();
+  const token = useAuth();
   const setCart = useCart();
   useEffect(() => {
     api.get("/courses").then((response) => {

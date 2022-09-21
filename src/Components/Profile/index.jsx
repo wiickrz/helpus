@@ -1,14 +1,14 @@
 import * as S from "./style";
 import { Avatar } from "@mui/material";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
 import { ModalEditProfile } from "../ModalEditProfile";
-import { UserContext } from "../../Providers/UsersFunctions";
+import { useAuth } from "../../Providers/Auth";
 
 export const Profile = () => {
   const [updateUser, setUpdateUser] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const { user } = useContext(UserContext);
+  const { user } = useAuth();
 
   const getUserLetters = () => {
     const fullName = user.username ? user.username.charAt(0) : "";
@@ -27,7 +27,7 @@ export const Profile = () => {
       </Avatar>
       <S.Title>
         Olá,
-        <span>{user && user.username}!</span>
+        <span>{user && user.username.toUpperCase()}!</span>
       </S.Title>
       {!!openModal && <ModalEditProfile onClose={() => setOpenModal(false)} />}
     </S.Container>

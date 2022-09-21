@@ -25,12 +25,14 @@ export const Contact = () => {
           <a
             href="https://www.linkedin.com/in/andre-silva2502/"
             target="_blank"
+            rel="noreferrer"
           >
             <img src={linkedin} alt="linkedin" />
           </a>
           <a
             href="https://api.whatsapp.com/send?text=Comprei%20o%20curso,
                         %20Redux%20qual%20é%20o%20procedimento%20para%20realizar%20o%20agendamento?"
+            rel="noreferrer"
             target="_blank"
           >
             <img src={whats} alt="whats" />
