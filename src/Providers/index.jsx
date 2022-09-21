@@ -1,3 +1,4 @@
+import { CardProdProvider } from "./CardProd";
 import { CoursesProvider } from "./Courses";
 import { DashboardProvider } from "./Dashboard";
 import { MentorsProvider } from "./Mentors";
@@ -8,7 +9,9 @@ export const Providers = ({ children }) => {
     <MentorsProvider>
       <CoursesProvider>
         <DashboardProvider>
-          <RegisterProvider>{children}</RegisterProvider>
+          <CardProdProvider>
+            <RegisterProvider>{children}</RegisterProvider>
+          </CardProdProvider>
         </DashboardProvider>
       </CoursesProvider>
     </MentorsProvider>
