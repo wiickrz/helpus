@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const mentors = useMentors();
-  const courses = useCourses();
+  const { courses } = useCourses();
 
   return (
     <>
