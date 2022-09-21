@@ -66,20 +66,30 @@ export const UserLogo = styled.div`
 export const ContentInput = styled.div`
   width: 280px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  @media (max-width: 844px) {
+    width: 300px;
+  }
   div {
     flex: 4;
     margin-top: 8px;
+    @media (max-width: 844px) {
+      flex: 8;
+      margin-right: 0;
+    }
     input {
-      height: 41px;
+      height: 42px;
       border-radius: 5px 0 0 5px;
     }
   }
   button {
     flex: 1;
-    padding: 7px;
+    padding: 9px;
+    height: 42px;
     border-radius: 0 5px 5px 0;
+    @media (max-width: 844px) {
+      margin-left: 0;
+    }
   }
 `;
 

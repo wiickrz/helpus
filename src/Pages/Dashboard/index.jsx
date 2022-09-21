@@ -103,4 +103,5 @@ export const Dashboard = () => {
             })}
       </ContentProducts>
     </Container>
-
+  );
+};
