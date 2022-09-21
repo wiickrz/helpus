@@ -3,6 +3,7 @@ import { Button } from "../../Components/Button";
 import { TextField } from "../../Components/Input";
 import { Card } from "../../Components/Card";
 import { CgSearch } from "react-icons/cg";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import {
   Container,
   ContentInput,
@@ -20,16 +21,24 @@ export const Dashboard = () => {
   const { courses } = useCourses();
   const { handleClick } = useCardProd();
   const [inputValue, setInputValue] = useState("");
+  const [back, setBack] = useState(false);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const { register, handleSubmit } = useForm({});
   const { courseDashboard, selectedCourse, handleSelectedCourse } =
     useDashboard();
 
-  const submitCallback = (inputValue) => {
+  const handleInput = (inputValue) => {
     const filtrado = courses.filter((course) => {
       return course.name.toLocaleLowerCase() === inputValue.toLocaleLowerCase();
     });
     setFilteredCourses(filtrado);
+    setBack(true);
+  };
+
+  const functionBack = () => {
+    setBack(false);
+    setFilteredCourses([]);
+    setInputValue("");
   };
 
   return (
@@ -58,13 +67,16 @@ export const Dashboard = () => {
               value={inputValue}
             />
           </div>
-          <Button
-            verde
-            onClick={() => handleSubmit(submitCallback(inputValue))}
-          >
+          <Button verde onClick={() => handleSubmit(handleInput(inputValue))}>
             <CgSearch size={"25px"} />
           </Button>
         </ContentInput>
+        {back && (
+          <p onClick={() => functionBack()}>
+            <IoIosArrowRoundBack size={"20px"} />
+            Voltar
+          </p>
+        )}
       </ContentUserInfo>
       <ContentProducts>
         {selectedCourse

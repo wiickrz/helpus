@@ -32,6 +32,16 @@ export const ContentUserInfo = styled.section`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  position: relative;
+
+  p {
+    color: var(--branco-1);
+    position: absolute;
+    top: 75px;
+    left: 350px;
+    font-weight: 400;
+    cursor: pointer;
+  }
   @media (max-width: 844px) {
     flex-direction: column;
 
