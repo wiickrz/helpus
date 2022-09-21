@@ -8,6 +8,8 @@ import { FiEyeOff, FiEye } from "react-icons/fi";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { RegisterContext } from "../../Providers/Register";
+import { Header } from "../../Components/Header";
+import { PageContainer } from "../Login/style";
 
 export const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -65,89 +67,92 @@ export const Register = () => {
 
   return (
     <>
-      <S.Container>
-        <S.Background>
-          <div>
-            <h2>Help Us - Developers</h2>
-            <p>
-              <i>Ajudamos você a se tornar protagonista do seu código!</i>
-            </p>
-            <img src={RegisterImage} alt="Logo" />
-          </div>
-        </S.Background>
-        <S.Box>
-          <form onSubmit={handleSubmit(handleRegister)}>
-            <TextField
-              label="Nome"
-              type="name"
-              register={register}
-              name="username"
-              placeholder="Insira seu nome completo"
-              error={errors.username?.message}
-            />
-            <TextField
-              label="Email"
-              type="email"
-              register={register}
-              name="email"
-              placeholder="Insira seu email"
-              error={errors.email?.message}
-            />
-            <S.Password error={!!errors.password?.message}>
-              <div className="innerContainer">
-                <label>Senha</label>
-                <input
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Insira sua senha"
-                  {...register("password")}
-                />
-                <S.Yey
-                  error={!!errors.password?.message}
-                  onClick={changePassword}
-                >
-                  {" "}
-                  {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
-                </S.Yey>
-              </div>
-              {!!errors && <S.Error>{errors.password?.message}</S.Error>}
-            </S.Password>
+      <PageContainer>
+        <Header />
+        <S.Container>
+          <S.Background>
+            <div>
+              <h2>Help Us - Developers</h2>
+              <p>
+                <i>Ajudamos você a se tornar protagonista do seu código!</i>
+              </p>
+              <img src={RegisterImage} alt="Logo" />
+            </div>
+          </S.Background>
+          <S.Box>
+            <form onSubmit={handleSubmit(handleRegister)}>
+              <TextField
+                label="Nome"
+                type="name"
+                register={register}
+                name="username"
+                placeholder="Insira seu nome completo"
+                error={errors.username?.message}
+              />
+              <TextField
+                label="Email"
+                type="email"
+                register={register}
+                name="email"
+                placeholder="Insira seu email"
+                error={errors.email?.message}
+              />
+              <S.Password error={!!errors.password?.message}>
+                <div className="innerContainer">
+                  <label>Senha</label>
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Insira sua senha"
+                    {...register("password")}
+                  />
+                  <S.Yey
+                    error={!!errors.password?.message}
+                    onClick={changePassword}
+                  >
+                    {" "}
+                    {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
+                  </S.Yey>
+                </div>
+                {!!errors && <S.Error>{errors.password?.message}</S.Error>}
+              </S.Password>
 
-            <S.Password error={!!errors.passwordConf?.message}>
-              <div className="innerContainer">
-                <label>Confirmação de Senha</label>
-                <input
-                  name="passwordConf"
-                  type={showPasswordTwo ? "text" : "password"}
-                  placeholder="Confirme sua senha"
-                  {...register("passwordConf")}
-                />
-                <S.Yey
-                  error={!!errors.passwordConf?.message}
-                  onClick={changePasswordTwo}
-                >
-                  {" "}
-                  {!showPasswordTwo ? <FiEyeOff /> : <FiEye />}{" "}
-                </S.Yey>
-              </div>
-              {!!errors && <S.Error>{errors.passwordConf?.message}</S.Error>}
-            </S.Password>
+              <S.Password error={!!errors.passwordConf?.message}>
+                <div className="innerContainer">
+                  <label>Confirmação de Senha</label>
+                  <input
+                    name="passwordConf"
+                    type={showPasswordTwo ? "text" : "password"}
+                    placeholder="Confirme sua senha"
+                    {...register("passwordConf")}
+                  />
+                  <S.Yey
+                    error={!!errors.passwordConf?.message}
+                    onClick={changePasswordTwo}
+                  >
+                    {" "}
+                    {!showPasswordTwo ? <FiEyeOff /> : <FiEye />}{" "}
+                  </S.Yey>
+                </div>
+                {!!errors && <S.Error>{errors.passwordConf?.message}</S.Error>}
+              </S.Password>
 
-            <S.Button type="submit">Cadastrar</S.Button>
-            <S.Login>
-              <p>ou</p>
-              <div />
-              <span>
-                se já possui uma conta, faça o{" "}
-                <Link to="/login">
-                  <i>login</i>
-                </Link>
-                .
-              </span>
-            </S.Login>
-          </form>
-        </S.Box>
-      </S.Container>
+              <S.Button type="submit">Cadastrar</S.Button>
+              <S.Login>
+                <p>ou</p>
+                <div />
+                <span>
+                  se já possui uma conta, faça o{" "}
+                  <Link to="/login">
+                    <i>login</i>
+                  </Link>
+                  .
+                </span>
+              </S.Login>
+            </form>
+          </S.Box>
+        </S.Container>
+      </PageContainer>
     </>
   );
 };

@@ -12,6 +12,8 @@ import { api } from "../../Services/api";
 import { toast } from "react-toastify";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import jwtDecode from "jwt-decode";
+import { Header } from "../../Components/Header";
+import { PageContainer } from "./style";
 
 export const Login = () => {
   const nav = useNavigate();
@@ -42,7 +44,7 @@ export const Login = () => {
         localStorage.setItem("@HelpUs:token", JSON.stringify(token));
         localStorage.setItem("@HelpUs:user", JSON.stringify(sub));
         toast.success("Usuário logado com sucesso!");
-        return nav("/");
+        return nav("/dashboard");
       })
       .catch((error) => {
         toast.error("Usuário ou senha incorretos!");
@@ -51,58 +53,61 @@ export const Login = () => {
 
   return (
     <>
-      <S.Container>
-        <S.Background>
-          <div>
-            <h2>Help Us - Developers</h2>
-            <p>
-              <i>Ajudamos você a se tornar protagonista do seu código!</i>
-            </p>
-            <img src={RegisterImage} alt="Logo" />
-          </div>
-        </S.Background>
-        <S.Box>
-          <form onSubmit={handleSubmit(submitCallback)}>
-            <TextField
-              label="Usuário"
-              type="text"
-              name="email"
-              placeholder="Seu nome de usuário"
-              register={register}
-              error={errors.email?.message}
-            />
-            <S.Password error={!!errors.password?.message}>
-              <div className="innerContainer">
-                <label>Senha</label>
-                <input
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Insira sua senha"
-                  {...register("password")}
-                />
-                <S.Yey
-                  error={!!errors.password?.message}
-                  onClick={changePassword}
-                >
-                  {" "}
-                  {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
-                </S.Yey>
-              </div>
-              {!!errors && <S.Error>{errors.password?.message}</S.Error>}
-            </S.Password>
-            <S.Button type="submit">Login</S.Button>
-            <S.Login>
-              <p>ou</p>
-              <div />
-              <span>
-                <Link to="/login">
-                  <i>cadastre-se</i>
-                </Link>
-              </span>
-            </S.Login>
-          </form>
-        </S.Box>
-      </S.Container>
+      <PageContainer>
+        <Header />
+        <S.Container>
+          <S.Background>
+            <div>
+              <h2>Help Us - Developers</h2>
+              <p>
+                <i>Ajudamos você a se tornar protagonista do seu código!</i>
+              </p>
+              <img src={RegisterImage} alt="Logo" />
+            </div>
+          </S.Background>
+          <S.Box>
+            <form onSubmit={handleSubmit(submitCallback)}>
+              <TextField
+                label="Usuário"
+                type="text"
+                name="email"
+                placeholder="Seu nome de usuário"
+                register={register}
+                error={errors.email?.message}
+              />
+              <S.Password error={!!errors.password?.message}>
+                <div className="innerContainer">
+                  <label>Senha</label>
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Insira sua senha"
+                    {...register("password")}
+                  />
+                  <S.Yey
+                    error={!!errors.password?.message}
+                    onClick={changePassword}
+                  >
+                    {" "}
+                    {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
+                  </S.Yey>
+                </div>
+                {!!errors && <S.Error>{errors.password?.message}</S.Error>}
+              </S.Password>
+              <S.Button type="submit">Login</S.Button>
+              <S.Login>
+                <p>ou</p>
+                <div />
+                <span>
+                  <Link to="/register">
+                    <i>cadastre-se</i>
+                  </Link>
+                </span>
+              </S.Login>
+            </form>
+          </S.Box>
+        </S.Container>
+      </PageContainer>
     </>
   );
 };
