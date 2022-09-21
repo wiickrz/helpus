@@ -15,21 +15,21 @@ export const CoursesProvider = ({ children }) => {
     });
   }, []);
 
-  const handleAddCart = (id) => {
-    if (token) {
-      api
-        .get(`/courses/${id}`, {
-          headers: {
-            Authorization: `Bearer ${id}`,
-          },
-        })
-        .then((response) => setCart(response.data))
-        .catch((err) => console.log(err));
-    }
-  };
+  // const handleAddCart = (id) => {
+  //   if (token) {
+  //     api
+  //       .get(`courses/${id}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${id}`,
+  //         },
+  //       })
+  //       .then((response) => setCart(response.data))
+  //       .catch((err) => console.log(err));
+  //   }
+  // };
 
   return (
-    <CoursesContext.Provider value={(courses, handleAddCart)}>
+    <CoursesContext.Provider value={courses}>
       {children}
     </CoursesContext.Provider>
   );

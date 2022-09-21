@@ -2,21 +2,18 @@ import RegisterImage from "../../assets/register.svg";
 import * as S from "./style";
 import { useState } from "react";
 
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TextField } from "../../Components/Input";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import formSchema from "./formSchema";
-import { api } from "../../Services/api";
-import { toast } from "react-toastify";
 import { FiEyeOff, FiEye } from "react-icons/fi";
-import jwtDecode from "jwt-decode";
+import { Header } from "../../Components/Header";
 import { useAuth } from "../../Providers/Auth";
 
 export const Login = () => {
-  const nav = useNavigate();
-  const auth = useAuth();
+  const { login } = useAuth();
 
   const {
     register,
@@ -28,12 +25,13 @@ export const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const changePassword = () => {
+  const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   return (
-    <>
+    <S.PageContainer>
+      <Header />
       <S.Container>
         <S.Background>
           <div>
@@ -45,7 +43,7 @@ export const Login = () => {
           </div>
         </S.Background>
         <S.Box>
-          <form onSubmit={handleSubmit(auth.login)}>
+          <form onSubmit={handleSubmit(login)}>
             <TextField
               label="Usuário"
               type="text"
@@ -65,7 +63,7 @@ export const Login = () => {
                 />
                 <S.Yey
                   error={!!errors.password?.message}
-                  onClick={changePassword}
+                  onClick={togglePassword}
                 >
                   {" "}
                   {!showPassword ? <FiEyeOff /> : <FiEye />}{" "}
@@ -86,6 +84,6 @@ export const Login = () => {
           </form>
         </S.Box>
       </S.Container>
-    </>
+    </S.PageContainer>
   );
 };

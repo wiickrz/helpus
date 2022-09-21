@@ -19,3 +19,9 @@ export const LogoImg = styled.img`
   height: 80px;
   margin-left: 25px;
 `;
+
+export const Line = styled.div`
+  height: 1px;
+  width: 100vw;
+  background-color: white;
+`;
