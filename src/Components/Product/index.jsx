@@ -1,3 +1,5 @@
+import { useCardProd } from "../../Providers/CardProd";
+import { Button } from "../Button";
 import {
   Category,
   Container,
@@ -10,7 +12,7 @@ import {
   Price,
 } from "./style";
 
-export const CardProd = ({
+export const Product = ({
   img,
   name,
   category,
@@ -18,6 +20,7 @@ export const CardProd = ({
   price,
   mentor,
 }) => {
+  const { functionBackDashboard, setMentor, handleClickCart } = useCardProd();
   return (
     <Container>
       <InfoProduct>
@@ -30,8 +33,19 @@ export const CardProd = ({
           Apenas <span>R$ {price}</span>
         </Price>
         <Description>{description}</Description>
-        <MentorName>Professor: {mentor}</MentorName>
-        <div>//aqui serão colocados os componentes button</div>
+        <MentorName onChange={(event) => setMentor(event.target.value)}>
+          {mentor}
+        </MentorName>
+        <div>
+          <Button red onClick={() => functionBackDashboard()}>
+            Voltar
+          </Button>
+          <div>
+            <Button proDesk onClick={() => handleClickCart()}>
+              Adicionar ao carrinho
+            </Button>
+          </div>
+        </div>
       </InfoProductDescription>
     </Container>
   );
