@@ -14,9 +14,15 @@ export const Container = styled.section`
     width: 980px;
   }
   @media (max-width: 1024px) {
+    width: 900px;
+  }
+  @media (max-width: 924px) {
+    width: 880px;
+  }
+  @media (max-width: 896px) {
     width: 800px;
   }
-  @media (max-width: 844px) {
+  @media (max-width: 794px) {
     width: 600px;
   }
   @media (max-width: 600px) {

@@ -14,19 +14,23 @@ export const Container = styled.section`
   @media (max-width: 1035px) {
     width: 920px;
   }
-  @media (max-width: 955px) {
+  @media (max-width: 924px) {
     width: 840px;
-  }
-  @media (max-width: 844px) {
-    width: 500px;
     flex-direction: column;
     align-items: center;
+  }
+  @media (max-width: 896px) {
+    width: 800px;
+  }
+  @media (max-width: 794px) {
+    width: 570px;
   }
   @media (max-width: 600px) {
     width: 280px;
   }
   @media (max-width: 500px) {
-    width: 220px;
+    width: 239px;
+    padding: 0;
   }
   /* @media (max-width: 420px) {
     width: 210px;
@@ -43,7 +47,7 @@ export const InfoProduct = styled.div`
   background-color: var(--cinza-1);
   box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 844px) {
+  @media (max-width: 924px) {
     width: 430px;
     height: 460px;
     margin: 5px auto;
@@ -51,6 +55,7 @@ export const InfoProduct = styled.div`
   @media (max-width: 600px) {
     width: 260px;
     height: 260px;
+    margin: 8px auto;
   }
   @media (max-width: 500px) {
     width: 240px;
@@ -73,9 +78,17 @@ export const InfoProductDescription = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      margin: 8px 0;
+      button {
+        width: 210px;
+      }
+    }
   }
 
-  @media (max-width: 844px) {
+  @media (max-width: 934px) {
     width: 430px;
     height: 460px;
     margin: 5px auto;
@@ -83,6 +96,7 @@ export const InfoProductDescription = styled.div`
   @media (max-width: 600px) {
     width: 260px;
     height: 260px;
+    margin: 0 auto;
   }
   @media (max-width: 500px) {
     width: 240px;
@@ -136,13 +150,16 @@ export const Description = styled.p`
   margin: 58px auto 78px;
 
   @media (max-width: 600px) {
-    width: 260px;
+    width: 240px;
     font-size: 0.8rem;
     margin: 58px auto 58px;
     text-align: unset;
   }
   @media (max-width: 500px) {
     width: 220px;
+  }
+  @media (max-width: 420px) {
+    width: 160px;
   }
 `;
 
@@ -158,5 +175,8 @@ export const MentorName = styled.select`
 
   @media (max-width: 600px) {
     width: 220px;
+  }
+  @media (max-width: 500px) {
+    width: 180px;
   }
 `;
