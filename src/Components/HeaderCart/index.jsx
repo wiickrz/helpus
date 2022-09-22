@@ -13,11 +13,12 @@ export const HeaderCart = () => {
         <Link to="/dashboard">
           <S.LogoImg src={logo} alt="logo" />
         </Link>
-        <Link to="/cart">
+        <div>
           <FiShoppingCart
             style={{ color: "white", width: "40px", height: "30px" }}
           />
-        </Link>
+          <S.Counter>2</S.Counter>
+        </div>
         <S.BoxButton>
           <Link to="/">
             <Button

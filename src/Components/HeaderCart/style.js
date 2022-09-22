@@ -25,3 +25,19 @@ export const Line = styled.div`
   width: 100vw;
   background-color: white;
 `;
+
+export const Counter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  width: 15px;
+  position: relative;
+  bottom: 40px;
+  left: 30px;
+  border-radius: 100%;
+  background-color: #15CDCA;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+`;
