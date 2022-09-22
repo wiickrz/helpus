@@ -11,9 +11,12 @@ export const HeaderCart = () => {
         <Link to="/">
           <S.LogoImg src={logo} alt="logo" />
         </Link>
-        <FiShoppingCart
-          style={{ color: "white", width: "40px", height: "30px" }}
-        />
+        <div>
+          <FiShoppingCart
+            style={{ color: "white", width: "40px", height: "30px" }}
+          />
+          <S.Counter>2</S.Counter>
+        </div>
         <S.BoxButton>
           <Link to="/Login">
             <Button red style={{ color: "white", width: "100px" }}>
@@ -22,7 +25,7 @@ export const HeaderCart = () => {
           </Link>
         </S.BoxButton>
       </S.Box>
-      <S.Line/>
+      <S.Line />
     </>
   );
 };
