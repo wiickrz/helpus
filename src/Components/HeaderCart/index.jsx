@@ -7,6 +7,7 @@ import { useAuth } from "../../Providers/Auth";
 
 export const HeaderCart = () => {
   const { logout } = useAuth();
+
   return (
     <>
       <S.Box>

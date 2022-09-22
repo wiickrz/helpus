@@ -22,7 +22,6 @@ export const CardProdProvider = ({ children }) => {
     const course = courses.find((p) => p.id === id);
     localStorage.setItem("@HelpUs:card", JSON.stringify(course));
     setProd(course);
-    console.log(course);
     return nav("/product");
   };
 

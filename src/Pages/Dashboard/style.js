@@ -36,9 +36,6 @@ export const ContentUserInfo = styled.section`
 
   p {
     color: var(--branco-1);
-    position: absolute;
-    top: 75px;
-    left: 350px;
     font-weight: 400;
     cursor: pointer;
   }
@@ -108,14 +105,15 @@ export const ContentProducts = styled.section`
   padding: 8px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+
   @media (max-width: 844px) {
     width: 500px;
     margin: 0 auto;
   }
   @media (max-width: 600px) {
-    width: 300px;
+    width: 320px;
     flex-direction: column;
+    padding: 0;
   }
   @media (max-width: 420px) {
     width: 250px;

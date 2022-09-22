@@ -17,6 +17,7 @@ import { useDashboard } from "../../Providers/Dashboard";
 import { useCardProd } from "../../Providers/CardProd";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Profile } from "../../Components/Profile";
 
 export const Dashboard = () => {
   const { courses } = useCourses();
@@ -48,14 +49,9 @@ export const Dashboard = () => {
       <Container>
         <ContentUserInfo>
           <UserLogo>
-            <figure>
-              <img src={loginho} alt="logo" />
-            </figure>
-            <div>
-              <span>Olá,</span>
-              <h2>User!</h2>
-            </div>
+            <Profile />
           </UserLogo>
+          <Button cadastroDesk>Agendamento</Button>
           <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
             {selectedCourse ? "Cursos" : "Meus cursos"}
           </Button>

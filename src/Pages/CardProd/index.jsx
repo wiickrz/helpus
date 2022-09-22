@@ -20,6 +20,7 @@ import { useCardProd } from "../../Providers/CardProd";
 import { Card } from "../../Components/Card";
 import { useMentors } from "../../Providers/Mentors";
 import { HeaderCart } from "../../Components/HeaderCart";
+import { Profile } from "../../Components/Profile";
 
 export const CardProd = () => {
   const { courses } = useCourses();
@@ -51,17 +52,9 @@ export const CardProd = () => {
       <Container>
         <ContentUserInfo>
           <UserLogo>
-            <figure>
-              <img src={loginho} alt="logo" />
-            </figure>
-            <div>
-              <span>Olá,</span>
-              <h2>User!</h2>
-            </div>
+            <Profile />
           </UserLogo>
-          <Button cadastroDesk onClick={() => handleSelectedCourse()}>
-            Agendamento
-          </Button>
+          <Button cadastroDesk>Agendamento</Button>
           <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
             {selectedCourse ? "Curso" : "Meus cursos"}
           </Button>
