@@ -43,19 +43,23 @@ export const Cart = () => {
                 <h3 style={{ color: "white", margin: "30px" }}>
                   Seu carrinho está vazio
                 </h3>
-                <p style={{ color: "white", marginBottom: "30px" }}>Adicione itens</p>
+                <p style={{ color: "white", marginBottom: "30px" }}>
+                  Adicione itens
+                </p>
               </>
             )}
           </S.List>
-          { cart.length ? (<S.BoxTotal>
-            <h3 style={{ color: "white" }}>Total = </h3>
-            <S.P>R${cart.reduce((c, p) => p.price + c, 0)},00</S.P>
-            <Button
-              style={{ width: "100px", height: "20px", fontSize: "14px" }}
-            >
-              Finalizar
-            </Button>
-          </S.BoxTotal>):(null)}
+          {cart.length ? (
+            <S.BoxTotal>
+              <h3 style={{ color: "white" }}>Total = </h3>
+              <S.P>R${cart.reduce((c, p) => p.price + c, 0)},00</S.P>
+              <Button
+                style={{ width: "100px", height: "20px", fontSize: "14px" }}
+              >
+                Finalizar
+              </Button>
+            </S.BoxTotal>
+          ) : null}
         </S.Prods>
       </S.Background>
     </>
