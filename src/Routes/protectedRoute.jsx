@@ -4,6 +4,7 @@ import { Dashboard } from "../Pages/Dashboard";
 import { PageContact } from "../Pages/PageContact";
 import { Home } from "../Pages/Home";
 import { NotFound } from "../Pages/NotFound";
+import { CardProd } from "../Pages/CardProd";
 
 export const ProtectedRoutes = () => {
   return (
