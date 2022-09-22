@@ -10,7 +10,7 @@ export const UnprotectedRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/dashboard" element={<Navigate to="/login" />} />
-      <Route path="/pagecontact" element={<Navigate to="/login" />} />
+      <Route path="/contact" element={<Navigate to="/login" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFound />} />

@@ -13,7 +13,7 @@ export const ProtectedRoutes = () => {
       <Route path="/login" element={<Navigate to="/dashboard" />} />
       <Route path="/register" element={<Navigate to="/dashboard" />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/pagecontact" element={<PageContact />} />
+      <Route path="/contact" element={<PageContact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
