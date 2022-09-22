@@ -5,12 +5,12 @@ import linkedin from "../../assets/linkedin.svg";
 import whats from "../../assets/whats.svg";
 
 export const Contact = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Container>
       <Content>
         <h2>Compra aprovada</h2>
-        <div>
+        <div className="paragrafo">
           <p>
             Entre em contato conosco através dos canais abaixo para realizar os
             seus agendamentos
@@ -39,7 +39,7 @@ export const Contact = () => {
         </ImgContent>
       </Content>
       <div className="button">
-        {/* <Button onClick={() => navigate("/home")}>Home</Button> */}
+        { <Button onClick={() => navigate("/home")}>Home</Button> }
       </div>
     </Container>
   );
