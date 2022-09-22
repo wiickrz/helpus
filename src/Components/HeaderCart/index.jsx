@@ -4,9 +4,11 @@ import * as S from "./style";
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { useAuth } from "../../Providers/Auth";
+import { useCart } from "../../Providers/Cart";
 
 export const HeaderCart = () => {
   const { logout } = useAuth();
+  const {cart} = useCart();
 
   return (
     <>
@@ -15,10 +17,12 @@ export const HeaderCart = () => {
           <S.LogoImg src={logo} alt="logo" />
         </Link>
         <div>
-          <FiShoppingCart
-            style={{ color: "white", width: "40px", height: "30px" }}
-          />
-          <S.Counter>2</S.Counter>
+          <Link to="/cart">
+            <FiShoppingCart
+              style={{ color: "white", width: "40px", height: "30px" }}
+            />
+          </Link>
+          <S.Counter>{cart.length}</S.Counter>
         </div>
         <S.BoxButton>
           <Link to="/">
