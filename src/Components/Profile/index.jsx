@@ -27,7 +27,7 @@ export const Profile = () => {
       </Avatar>
       <S.Title>
         Olá,
-        <span>{user && user.username.toUpperCase()}!</span>
+        <span>{user && user.username}!</span>
       </S.Title>
       {!!openModal && <ModalEditProfile onClose={() => setOpenModal(false)} />}
     </S.Container>
