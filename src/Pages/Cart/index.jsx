@@ -47,7 +47,7 @@ export const Cart = () => {
               </>
             )}
           </S.List>
-          <S.BoxTotal>
+          { cart.length ? (<S.BoxTotal>
             <h3 style={{ color: "white" }}>Total = </h3>
             <S.P>R${cart.reduce((c, p) => p.price + c, 0)},00</S.P>
             <Button
@@ -55,7 +55,7 @@ export const Cart = () => {
             >
               Finalizar
             </Button>
-          </S.BoxTotal>
+          </S.BoxTotal>):(null)}
         </S.Prods>
       </S.Background>
     </>
