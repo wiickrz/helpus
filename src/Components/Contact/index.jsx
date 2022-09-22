@@ -3,7 +3,6 @@ import { Container, Content, ImgContent } from "./style";
 import { useNavigate } from "react-router";
 import linkedin from "../../assets/linkedin.svg";
 import whats from "../../assets/whats.svg";
-import { Home } from "../../Pages/Home/index";
 
 export const Contact = () => {
   // const navigate = useNavigate();
