@@ -49,7 +49,7 @@ export const List = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
-`
+`;
 export const ItemList = styled.li`
   display: flex;
   align-items: center;
@@ -60,30 +60,33 @@ export const ItemList = styled.li`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`
+`;
 export const BoxValor = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   @media (max-width: 768px) {
-    margin:10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
   }
-`
+`;
 export const Img = styled.img`
   height: 80px;
   width: 80px;
-`
+`;
 
 export const P = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--verde-1);
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   margin: 0px 50px 0px 50px;
   @media (max-width: 768px) {
     margin: 0;
   }
-`
+`;
 
 export const BoxTotal = styled.div`
   display: flex;
@@ -97,7 +100,7 @@ export const BoxTotal = styled.div`
     justify-content: center;
     margin: 0;
   }
-`
+`;
 
 export const BoxClose = styled.div`
   display: flex;
@@ -108,4 +111,4 @@ export const BoxClose = styled.div`
     bottom: 120px;
     left: 50px;
   }
-`
+`;
