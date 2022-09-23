@@ -18,6 +18,7 @@ import { useCardProd } from "../../Providers/CardProd";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Profile } from "../../Components/Profile";
+import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
   const { courses } = useCourses();
@@ -51,7 +52,9 @@ export const Dashboard = () => {
           <UserLogo>
             <Profile />
           </UserLogo>
-          <Button cadastroDesk>Agendamento</Button>
+          <Link to="/contact">
+            <Button cadastroDesk>Agendamento</Button>
+          </Link>
           <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
             {selectedCourse ? "Cursos" : "Meus cursos"}
           </Button>
