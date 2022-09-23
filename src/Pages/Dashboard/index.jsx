@@ -33,7 +33,10 @@ export const Dashboard = () => {
   const { purchasesFilter, purchases } = useAuth();
   const handleInput = (inputValue) => {
     const filtrado = courses.filter((course) => {
-      return course.name.toLocaleLowerCase() === inputValue.toLocaleLowerCase();
+      return (
+        course.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+        course.category.toLowerCase().includes(inputValue.toLowerCase())
+      );
     });
     setFilteredCourses(filtrado);
     setBack(true);
