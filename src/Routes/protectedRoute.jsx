@@ -5,6 +5,7 @@ import { PageContact } from "../Pages/PageContact";
 import { Home } from "../Pages/Home";
 import { NotFound } from "../Pages/NotFound";
 import { CardProd } from "../Pages/CardProd";
+import { MyCourses } from "../Pages/MyCourses";
 
 export const ProtectedRoutes = () => {
   return (
@@ -12,6 +13,7 @@ export const ProtectedRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<CardProd />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/mycourses" element={<MyCourses />} />
       <Route path="/login" element={<Navigate to="/dashboard" />} />
       <Route path="/register" element={<Navigate to="/dashboard" />} />
       <Route path="/dashboard" element={<Dashboard />} />
