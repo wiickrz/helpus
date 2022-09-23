@@ -21,6 +21,7 @@ import { Card } from "../../Components/Card";
 import { useMentors } from "../../Providers/Mentors";
 import { HeaderCart } from "../../Components/HeaderCart";
 import { Profile } from "../../Components/Profile";
+import { Link } from "react-router-dom";
 
 export const CardProd = () => {
   const { courses } = useCourses();
@@ -54,7 +55,9 @@ export const CardProd = () => {
           <UserLogo>
             <Profile />
           </UserLogo>
-          <Button cadastroDesk>Agendamento</Button>
+          <Link to="/contact">
+            <Button cadastroDesk>Agendamento</Button>
+          </Link>
           <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
             {selectedCourse ? "Curso" : "Meus cursos"}
           </Button>
