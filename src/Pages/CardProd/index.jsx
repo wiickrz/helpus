@@ -59,23 +59,28 @@ export const CardProd = () => {
             <Button cadastroDesk>Agendamento</Button>
           </Link>
           <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
-            {selectedCourse ? "Curso" : "Meus cursos"}
+            {selectedCourse ? "Curso selecionado" : "Meus cursos"}
           </Button>
-          <ContentInput>
-            <div>
-              <TextField
-                type="text"
-                placeholder="Buscar cursos"
-                name={"buscar cursos"}
-                register={register}
-                onChange={(event) => setInputValue(event.target.value)}
-                value={inputValue}
-              />
-            </div>
-            <Button verde onClick={() => handleSubmit(handleInput(inputValue))}>
-              <CgSearch size={"25px"} />
-            </Button>
-          </ContentInput>
+          {!selectedCourse && (
+            <ContentInput>
+              <div>
+                <TextField
+                  type="text"
+                  placeholder="Buscar cursos"
+                  name={"buscar cursos"}
+                  register={register}
+                  onChange={(event) => setInputValue(event.target.value)}
+                  value={inputValue}
+                />
+              </div>
+              <Button
+                verde
+                onClick={() => handleSubmit(handleInput(inputValue))}
+              >
+                <CgSearch size={"25px"} />
+              </Button>
+            </ContentInput>
+          )}
           {back && (
             <p onClick={() => functionBack()}>
               <IoIosArrowRoundBack size={"20px"} />
@@ -85,12 +90,12 @@ export const CardProd = () => {
         </ContentUserInfo>
         <ContentProducts>
           {selectedCourse ? (
-            courseDashboard?.map((course) => {
+            courseDashboard?.map((course, index) => {
               return (
                 <Card
-                  key={course.id}
-                  name={course.name}
-                  category={course.category}
+                  key={index}
+                  name={course.product}
+                  category={`Professor(a): ${course.mentor}`}
                   img={loginho}
                 />
               );

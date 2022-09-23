@@ -31,8 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(false);
-    localStorage.removeItem("@HelpUs:user");
-    localStorage.removeItem("@HelpUs:token");
+    localStorage.clear();
     api.defaults.headers.Authorization = null;
   };
 
@@ -72,7 +71,9 @@ export const AuthProvider = ({ children }) => {
           Authorization: `Bearer ${storagedToken}`,
         },
       })
-      .then((response) => setPurchases(response.data.purchases))
+      .then((response) => {
+        setPurchases(response.data.purchases);
+      })
       .catch((err) => console.log(err));
   };
 

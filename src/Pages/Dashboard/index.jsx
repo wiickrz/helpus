@@ -19,7 +19,6 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Profile } from "../../Components/Profile";
 import { Link } from "react-router-dom";
-import { purchases, useAuth } from "../../Providers/Auth";
 
 export const Dashboard = () => {
   const { courses } = useCourses();
@@ -30,7 +29,7 @@ export const Dashboard = () => {
   const { register, handleSubmit } = useForm({});
   const { courseDashboard, selectedCourse, handleSelectedCourse } =
     useDashboard();
-  const { purchasesFilter, purchases } = useAuth();
+
   const handleInput = (inputValue) => {
     const filtrado = courses.filter((course) => {
       return course.name.toLocaleLowerCase() === inputValue.toLocaleLowerCase();
@@ -56,25 +55,30 @@ export const Dashboard = () => {
           <Link to="/contact">
             <Button cadastroDesk>Agendamento</Button>
           </Link>
-          <Button verde cadastroDesk onClick={() => purchasesFilter()}>
-            {console.log(purchases)}
+          <Button verde cadastroDesk onClick={() => handleSelectedCourse()}>
             {selectedCourse ? "Cursos" : "Meus cursos"}
           </Button>
-          <ContentInput>
-            <div>
-              <TextField
-                type="text"
-                placeholder="Buscar cursos"
-                name={"buscar cursos"}
-                register={register}
-                onChange={(event) => setInputValue(event.target.value)}
-                value={inputValue}
-              />
-            </div>
-            <Button verde onClick={() => handleSubmit(handleInput(inputValue))}>
-              <CgSearch size={"25px"} />
-            </Button>
-          </ContentInput>
+          {!selectedCourse && (
+            <ContentInput>
+              <div>
+                <TextField
+                  type="text"
+                  placeholder="Buscar cursos"
+                  name={"buscar cursos"}
+                  register={register}
+                  onChange={(event) => setInputValue(event.target.value)}
+                  value={inputValue}
+                />
+              </div>
+              <Button
+                verde
+                onClick={() => handleSubmit(handleInput(inputValue))}
+              >
+                <CgSearch size={"25px"} />
+              </Button>
+            </ContentInput>
+          )}
+
           {back && (
             <p onClick={() => functionBack()}>
               <IoIosArrowRoundBack size={"20px"} />
@@ -84,12 +88,12 @@ export const Dashboard = () => {
         </ContentUserInfo>
         <ContentProducts>
           {selectedCourse
-            ? courseDashboard?.map((course) => {
+            ? courseDashboard?.map((course, index) => {
                 return (
                   <Card
-                    key={course.id}
-                    name={course.name}
-                    category={course.category}
+                    key={index}
+                    name={course.product}
+                    category={`Professor(a): ${course.mentor}`}
                     img={loginho}
                   />
                 );

@@ -34,7 +34,7 @@ export const CardProdProvider = ({ children }) => {
     const copyLocalStorage = [...cart, ProductAddedToTheCart];
     localStorage.setItem("@HelpUs:cart", JSON.stringify(copyLocalStorage));
 
-    // return nav("/Cart");
+    return nav("/cart");
   };
   const functionBackDashboard = () => {
     return nav("/dashboard");
@@ -44,6 +44,7 @@ export const CardProdProvider = ({ children }) => {
     <CardProdContext.Provider
       value={{
         prod,
+        setProd,
         handleClick,
         functionBackDashboard,
         setMentor,
