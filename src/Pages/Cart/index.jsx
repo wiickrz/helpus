@@ -55,7 +55,7 @@ export const Cart = () => {
           {cart.length ? (
             <S.BoxTotal>
               <h3 style={{ color: "white" }}>Total = </h3>
-              <S.P>R${cart.reduce((c, p) => p.price + c, 0)},00</S.P>
+              <S.P>R${cart.reduce((c, p) => p.prod.price + c, 0)},00</S.P>
               <Button
                 style={{ width: "100px", height: "20px", fontSize: "14px" }}
               >
