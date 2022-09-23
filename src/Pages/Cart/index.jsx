@@ -7,7 +7,7 @@ import { Button } from "../../Components/Button";
 import { HeaderCart } from "../../Components/HeaderCart";
 
 export const Cart = () => {
-  const { cart, handleRemoveClick } = useCart();
+  const { cart, handleRemoveClick, handleCompraFinalizada } = useCart();
   console.log(cart);
   return (
     <>
@@ -57,6 +57,7 @@ export const Cart = () => {
               <h3 style={{ color: "white" }}>Total = </h3>
               <S.P>R${cart.reduce((c, p) => p.price + c, 0)},00</S.P>
               <Button
+                onClick={() => handleCompraFinalizada()}
                 style={{ width: "100px", height: "20px", fontSize: "14px" }}
               >
                 Finalizar

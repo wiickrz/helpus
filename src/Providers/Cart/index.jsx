@@ -1,4 +1,6 @@
 import { createContext, useState, useContext } from "react";
+import { toast } from "react-toastify";
+import { api } from "../../Services/api";
 
 export const CartContext = createContext();
 
@@ -7,14 +9,40 @@ export const CartProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@HelpUs:cart")) || []
   );
 
+  console.log(cart);
+
   const handleRemoveClick = (id) => {
     const copyCarts = [...cart];
     copyCarts.splice(id, 1);
     localStorage.setItem("@HelpUs:cart", JSON.stringify(copyCarts));
     setCart(copyCarts);
   };
+
+  const handleCompraFinalizada = () => {
+    const produto = cart.map((item) => {
+      return item.prod.name && item.selectedMentor.name;
+    });
+    const token = localStorage.getItem("@HelpUs:token");
+    const user = localStorage.getItem("@HelpUs:user");
+    const { id } = user;
+    api
+      .post("purchases", {
+        Headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: {
+          userId: id,
+          products: produto,
+        },
+      })
+      .then((_) => {
+        toast.success("Compra realizada com sucesso");
+      });
+  };
   return (
-    <CartContext.Provider value={{ handleRemoveClick, cart, setCart }}>
+    <CartContext.Provider
+      value={{ handleRemoveClick, cart, setCart, handleCompraFinalizada }}
+    >
       {children}
     </CartContext.Provider>
   );
