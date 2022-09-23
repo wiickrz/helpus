@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [purchases, setPurchases] = useState([]);
   const nav = useNavigate();
 
   const login = async (data) => {
@@ -62,6 +63,19 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const purchasesFilter = () => {
+    const storagedToken = localStorage.getItem("@HelpUs:token");
+
+    api
+      .get(`/users/${user.id}?_embed=purchases`, {
+        headers: {
+          Authorization: `Bearer ${storagedToken}`,
+        },
+      })
+      .then((response) => setPurchases(response.data.purchases))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -70,6 +84,8 @@ export const AuthProvider = ({ children }) => {
         signed: Boolean(user),
         user,
         updateUser,
+        purchasesFilter,
+        purchases,
       }}
     >
       {children}

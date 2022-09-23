@@ -14,6 +14,7 @@ export const Box = styled.div`
 `;
 
 export const DivText = styled.div`
+  cursor: pointer;
   background-color: #15cdca;
   width: 210px;
   height: 40px;
@@ -21,6 +22,7 @@ export const DivText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 `;
 
 export const Background = styled.div`
