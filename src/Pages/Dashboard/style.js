@@ -32,19 +32,17 @@ export const ContentUserInfo = styled.section`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  position: relative;
 
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    button {
+      margin: 10px;
+    }
+  }
   p {
     color: var(--branco-1);
     font-weight: 400;
     cursor: pointer;
-  }
-  @media (max-width: 844px) {
-    flex-direction: column;
-
-    button {
-      margin: 15px;
-    }
   }
 `;
 
@@ -80,7 +78,7 @@ export const ContentInput = styled.div`
   div {
     flex: 4;
     margin-top: 8px;
-    @media (max-width: 844px) {
+    @media (max-width: 1024px) {
       flex: 8;
       margin-right: 0;
     }
@@ -94,7 +92,7 @@ export const ContentInput = styled.div`
     padding: 9px;
     height: 42px;
     border-radius: 0 5px 5px 0;
-    @media (max-width: 844px) {
+    @media (max-width: 1024px) {
       margin-left: 0;
     }
   }

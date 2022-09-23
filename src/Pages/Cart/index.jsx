@@ -9,13 +9,12 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { cart, handleRemoveClick, handleCompraFinalizada } = useCart();
-  console.log(cart);
   return (
     <>
       <HeaderCart />
       <S.Box>
         <Profile />
-        <Link style={{textDecoration:"none"}} to="/dashboard">
+        <Link style={{ textDecoration: "none" }} to="/dashboard">
           <S.DivText>Dashboard</S.DivText>
         </Link>
         <div style={{ width: "100px", height: "40px" }}></div>

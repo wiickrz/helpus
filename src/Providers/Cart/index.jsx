@@ -1,6 +1,7 @@
 import { createContext, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../Services/api";
+import { useNavigate } from "react-router";
 
 export const CartContext = createContext();
 
@@ -8,8 +9,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("@HelpUs:cart")) || []
   );
-
-  console.log(cart);
+  const nav = useNavigate();
 
   const handleRemoveClick = (id) => {
     const copyCarts = [...cart];
@@ -24,6 +24,7 @@ export const CartProvider = ({ children }) => {
     const prod = JSON.parse(localStorage.getItem("@HelpUs:cart"))[0].prod.name;
     const mentor = JSON.parse(localStorage.getItem("@HelpUs:cart"))[0]
       .selectedMentor[0].name;
+    console.log([prod]);
 
     api
       .post("purchases", {
@@ -33,6 +34,9 @@ export const CartProvider = ({ children }) => {
       })
       .then((_) => {
         toast.success("Compra realizada com sucesso");
+        setCart([]);
+        localStorage.removeItem("@HelpUs:cart");
+        nav("/contact");
       })
       .catch((err) => console.log(err));
   };

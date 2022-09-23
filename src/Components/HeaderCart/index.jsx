@@ -8,7 +8,7 @@ import { useCart } from "../../Providers/Cart";
 
 export const HeaderCart = () => {
   const { logout } = useAuth();
-  const {cart} = useCart();
+  const { cart } = useCart();
 
   return (
     <>
@@ -22,7 +22,7 @@ export const HeaderCart = () => {
               style={{ color: "white", width: "40px", height: "30px" }}
             />
           </Link>
-          <S.Counter>{cart.length}</S.Counter>
+          {cart.length > 0 && <S.Counter> {cart.length}</S.Counter>}
         </div>
         <S.BoxButton>
           <Link to="/">
