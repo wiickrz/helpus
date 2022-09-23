@@ -25,6 +25,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem("@HelpUs:token");
     const user = localStorage.getItem("@HelpUs:user");
     const { id } = user;
+    const data = id;
     api
       .post("purchases", {
         Headers: {
@@ -32,12 +33,13 @@ export const CartProvider = ({ children }) => {
         },
         body: {
           userId: id,
-          products: produto,
+          products: JSON.stringify(produto),
         },
       })
       .then((_) => {
         toast.success("Compra realizada com sucesso");
-      });
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <CartContext.Provider
