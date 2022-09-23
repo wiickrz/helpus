@@ -24,7 +24,7 @@ export const CoursesProvider = ({ children }) => {
           },
         })
         .then((response) => setCart(response.data))
-        .catch((err) => console.log(err));
+        .catch();
     }
   };
 

@@ -12,8 +12,6 @@ export const AuthProvider = ({ children }) => {
   const login = async (data) => {
     try {
       const { data: response } = await api.post("/login", data);
-      console.log(data);
-      console.log(response);
 
       setUser(response.user);
       api.defaults.headers.Authorization = `Bearer ${response.accessToken}`;
@@ -37,7 +35,6 @@ export const AuthProvider = ({ children }) => {
 
   const updateUser = (data) => {
     try {
-      console.log(data);
       api.patch(`/users/${user.id}`, data);
       toast.success("Usuário atualizado");
       const { email, username } = data;

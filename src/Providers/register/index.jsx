@@ -15,8 +15,7 @@ export const RegisterProvider = ({ children }) => {
         toast.success("Cadastro efetuado com sucesso");
         nav("/login");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         toast.error("Nome de usuário já existente");
       });
   };

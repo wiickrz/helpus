@@ -18,7 +18,6 @@ export const ModalEditProfile = ({ onClose }) => {
   } = useForm({});
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     updateUser({ username, email, password });
     onClose();
   };
