@@ -7,8 +7,8 @@ import { Button } from "../../Components/Button";
 import { HeaderCart } from "../../Components/HeaderCart";
 
 export const Cart = () => {
-  const { cart } = useCart();
-
+  const { cart, handleRemoveClick } = useCart();
+  console.log(cart);
   return (
     <>
       <HeaderCart />
@@ -21,18 +21,21 @@ export const Cart = () => {
         <S.Prods>
           <S.List>
             {cart.length ? (
-              cart.map(({ name, category, price }) => {
+              cart.map(({ prod }, index) => {
                 return (
-                  <S.ItemList>
+                  <S.ItemList key={index}>
                     <S.Img src={coursesImg} alt="Avatar" />
                     <div style={{ color: "white" }}>
-                      <h5 style={{ marginBottom: "5px" }}>{category}</h5>
-                      <h4>{name}</h4>
+                      <h5 style={{ marginBottom: "5px" }}>{prod.category}</h5>
+                      <h4>{prod.name}</h4>
                     </div>
                     <S.BoxValor>
-                      <S.P>R$ {price},00</S.P>
+                      <S.P>R$ {prod.price},00</S.P>
                       <S.BoxClose>
-                        <FaWindowClose style={{ color: "red" }} />
+                        <FaWindowClose
+                          onClick={() => handleRemoveClick(index)}
+                          style={{ color: "red" }}
+                        />
                       </S.BoxClose>
                     </S.BoxValor>
                   </S.ItemList>
