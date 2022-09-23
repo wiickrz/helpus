@@ -19,25 +19,22 @@ export const CartProvider = ({ children }) => {
   };
 
   const handleCompraFinalizada = () => {
-    const produto = cart.map((item) => {
-      return item.prod.name && item.selectedMentor.name;
-    });
-    const token = localStorage.getItem("@HelpUs:token");
     const user = localStorage.getItem("@HelpUs:user");
-    const { id } = user;
+    const id = JSON.parse(user).id;
+    const prod = JSON.parse(localStorage.getItem("@HelpUs:cart"))[0].prod.name;
+    const mentor = JSON.parse(localStorage.getItem("@HelpUs:cart"))[0]
+      .selectedMentor[0].name;
+
     api
       .post("purchases", {
-        Headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: {
-          userId: id,
-          products: produto,
-        },
+        userId: id,
+        product: prod,
+        mentor: mentor,
       })
       .then((_) => {
         toast.success("Compra realizada com sucesso");
-      });
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <CartContext.Provider
