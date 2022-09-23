@@ -63,10 +63,11 @@ export const ContentContainer = styled.div`
     img {
       padding: 10px 0;
       max-width: 100%;
-      width: 50%;
+      width: 100%;
 
       @media (min-width: 768px) {
         padding: 10px;
+        width: 50%;
       }
     }
   }
