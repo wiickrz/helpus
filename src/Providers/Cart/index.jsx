@@ -9,9 +9,9 @@ export const CartProvider = ({ children }) => {
 
   const handleRemoveClick = (id) => {
     const copyCarts = [...cart];
-    const item = copyCarts.filter((cart) => cart.id !== id);
-    localStorage.setItem("@HelpUs:cart", JSON.stringify(item));
-    setCart(item);
+    copyCarts.splice(id, 1);
+    localStorage.setItem("@HelpUs:cart", JSON.stringify(copyCarts));
+    setCart(copyCarts);
   };
   return (
     <CartContext.Provider value={{ handleRemoveClick, cart, setCart }}>
