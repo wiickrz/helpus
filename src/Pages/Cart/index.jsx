@@ -5,6 +5,7 @@ import { useCart } from "../../Providers/Cart";
 import { FaWindowClose } from "react-icons/fa";
 import { Button } from "../../Components/Button";
 import { HeaderCart } from "../../Components/HeaderCart";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { cart, handleRemoveClick } = useCart();
@@ -14,7 +15,9 @@ export const Cart = () => {
       <HeaderCart />
       <S.Box>
         <Profile />
-        <S.DivText>Meus Produtos</S.DivText>
+        <Link style={{textDecoration:"none"}} to="/dashboard">
+          <S.DivText>Dashboard</S.DivText>
+        </Link>
         <div style={{ width: "100px", height: "40px" }}></div>
       </S.Box>
       <S.Background>
